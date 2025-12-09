@@ -63,7 +63,7 @@ int LoadPreviousGame(string userName, vector<vector<int>>& allQuestions) {
     ifstream inFS;
     int mathLevel;
     int leftNum;
-    char mathSymbol;
+    int mathSymbol;
     int rightNum;
     int correctAns;
     int attempts;
@@ -84,7 +84,7 @@ int LoadPreviousGame(string userName, vector<vector<int>>& allQuestions) {
     cout << "Loading previous game. Please wait...." << endl;
 
     while (inFS >> mathLevel >> leftNum >> mathSymbol >> rightNum >> correctAns >> attempts) {
-        allQuestions.push_back({mathLevel, leftNum, static_cast<char>(mathSymbol), rightNum, correctAns, attempts});
+        allQuestions.push_back({mathLevel, leftNum, mathSymbol, rightNum, correctAns, attempts});
     }
 
     if (!inFS.is_open()) { throw runtime_error("Something went wrong with reading the " + FILE_NAME + " file.");}
